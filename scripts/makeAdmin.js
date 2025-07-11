@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 // 🟢 Replace this with your actual MongoDB URI
-const MONGO_URI = 'mongodb://localhost:27017/Railway_Management';
+const MONGO_URI = 'mongodb+srv://vikasprajapat3160:oC0C2lGqlQnW5MlL@cluster0.a7ydotf.mongodb.net/';
 
 // 🟢 Replace this with your actual User model schema
 const User = require('../models/User'); // adjust the path as per your project
