@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ✅ Connect to MongoDB
-const MONGO_URI = process.env.MONGO_URI ;
+const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI)
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => {
@@ -23,19 +23,28 @@ mongoose.connect(MONGO_URI)
 // ✅ Middleware
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://railway-frontend-dusky.vercel.app/", // if deployed
+  "https://railway-frontend-dusky.vercel.app"
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
+  origin: ["http://localhost:5173",
+    "https://railway-frontend-dusky.vercel.app"],
+  credentials: true
 }));
+
+
+
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   credentials: true,
+// }));
 
 
 app.use(express.json());
