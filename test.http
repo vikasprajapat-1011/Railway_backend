@@ -1,0 +1,31 @@
+# POST http://localhost:5000/api/auth/register
+# Content-Type: application/json
+
+# {
+#   "fullname": "sanjay",
+#   "email": "sanjayprajapat6031@gmail.com",
+#   "password": "1234"
+# } 
+
+# POST http://localhost:5000/api/auth/login
+# Content-Type: application/json
+
+# {
+#   "email": "sanjayprajapat6031@gmail.com",
+#   "password": "1234"
+# }
+
+# POST http://localhost:5000/api/auth/forgot-password
+# Content-Type: application/json
+
+# {
+#   "email": "sanjayprajapat6031@gmail.com"
+# }
+
+# # # RESET PASSWORD TEST
+# POST http://localhost:5000/api/auth/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODRlZmEzOTYxOGRlNmMyNTE1YzQwMjkiLCJlbWFpbCI6InNhbmpheXByYWphcGF0NjAzMUBnbWFpbC5jb20iLCJpYXQiOjE3NTA5NjIyODcsImV4cCI6MTc1MDk2Mjg4N30.Rff0Nmu9Nb305dvyJEjCN5NIyX6kelzzS2gY4nfXMFM
+# Content-Type: application/json
+
+# {
+#   "newPassword": "4321"
+# }
