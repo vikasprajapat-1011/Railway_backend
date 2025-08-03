@@ -21,11 +21,31 @@ mongoose.connect(MONGO_URI)
   });
 
 // ✅ Middleware
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://railway-frontend-dusky.vercel.app/", // if deployed
+];
+
 app.use(cors({
-  origin:"http://localhost:5173",
-  credentials:true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 }));
+
+
 app.use(express.json());
+
+// ✅ To parse URL-encoded data (e.g., from HTML forms)
+app.use(express.urlencoded({ extended: true }));
+
+// ✅ To serve static files (optional: provide a folder like 'public')
+app.use(express.static('public'));
+
 
 // ✅ Models
 const bookingSchema = new mongoose.Schema({
